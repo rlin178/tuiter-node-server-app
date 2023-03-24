@@ -1,7 +1,11 @@
 // const express = require('express') // imports express
-import express from 'express';
-const app = express() // creates instance of express library
-//app.get('/hello', (req, res) => {res.send('Hello World!')}) // triggers second argument
-app.get('/hello', (req, res) => {res.send('Life is good!')})
-app.get('/', (req, res) => {res.send('Welcome to Full Stack Development!')})
-app.listen(4000) // must be on port 4000
+import express from 'express'
+import HelloController
+    from "./controllers/hello-controller.js"
+import UserController
+    from "./controllers/users/users-controller.js"
+
+const app = express()
+HelloController(app)
+UserController(app)
+app.listen(4000)
